@@ -1,0 +1,6 @@
+C:\Users\Admin\Documents\GitHub\QuasarSimulator\QuasarSimulator\bin\Debug\QuasarSimulator.exe.config
+C:\Users\Admin\Documents\GitHub\QuasarSimulator\QuasarSimulator\obj\Debug\QuasarSimulator.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\QuasarSimulator\QuasarSimulator\bin\Debug\QuasarSimulator.exe
+C:\Users\Admin\Documents\GitHub\QuasarSimulator\QuasarSimulator\bin\Debug\QuasarSimulator.pdb
+C:\Users\Admin\Documents\GitHub\QuasarSimulator\QuasarSimulator\obj\Debug\QuasarSimulator.exe
+C:\Users\Admin\Documents\GitHub\QuasarSimulator\QuasarSimulator\obj\Debug\QuasarSimulator.pdb
