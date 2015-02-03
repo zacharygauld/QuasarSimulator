@@ -15,13 +15,12 @@ namespace QuasarSimulator
 
         static void Quasar()
         {
-            int credits, multiplicationFactor, endingCredits, bet;
-
+            int credits, endingCredits, bet;
+            Console.WriteLine("OPTIMAL PLAY IS ASSUMED!!!\n");
             Console.Write("How many credits do you want to start with? ");
             credits = Int32.Parse(Console.ReadLine());
-            Console.Write("How much do you want to multiply your credits by? ");
-            multiplicationFactor = Int32.Parse(Console.ReadLine());
-            endingCredits = multiplicationFactor * credits;
+            Console.Write("How much do you want to end with? ");
+            endingCredits = Int32.Parse(Console.ReadLine());
             Console.Write("How much do you want to bet per game? ");
             bet = Int32.Parse(Console.ReadLine());
             RunSim(credits, endingCredits, bet);
@@ -29,6 +28,7 @@ namespace QuasarSimulator
 
         static void RunSim(double credits, int endingCredits, int bet)
         {
+            int wins = 0, losses = 0;
             Random rng = new Random();
             int gameCount = 0;
             while (credits < endingCredits)
@@ -73,6 +73,7 @@ namespace QuasarSimulator
                 if (number <= 20)
                 {
                     Console.WriteLine("RESULT: WIN");
+                    wins++;
                     switch (number)
                     {
                         case 17:
@@ -99,11 +100,23 @@ namespace QuasarSimulator
                 {
                     Console.WriteLine("RESULT: LOSE");
                     Console.WriteLine("CREDITS LOST: {0}", bet);
+                    losses++;
                 }
                 Console.WriteLine("NUMBER: {0}", number);
             }
+            Results(credits, wins, losses, gameCount);
+        }
+
+        static void Results(double credits, int wins, int losses, int gameCount)
+        {
             Console.WriteLine("\nFINAL CREDITS: {0}", credits);
-            Console.WriteLine("APPROXIMATE TIME: {0} SECONDS (6 seconds a game)", gameCount * 6);
+            int totalSeconds = gameCount * 6;
+            TimeSpan time = TimeSpan.FromSeconds(totalSeconds);
+            Console.WriteLine("APPROXIMATE TIME: {0} DAYS, {1} HOURS, {2} MINUTES, {3} SECONDS (6 seconds per game)", time.Days, time.Hours, time.Minutes, time.Seconds);
+            Console.WriteLine("WINS TO LOSSES: {0} : {1}", wins, losses);
+            int totalGames = wins + losses;
+            double winPercentage = (double)wins / (double)totalGames;
+            Console.WriteLine("WIN PERCENTAGE: {0:0.0%}", winPercentage);
             Console.ReadKey();
         }
     }
