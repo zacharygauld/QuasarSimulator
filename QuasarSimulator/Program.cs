@@ -29,7 +29,7 @@ namespace QuasarSimulator
         static void RunSim(double credits, int endingCredits, int bet)
         {
             int wins = 0, losses = 0;
-            Random rng = new Random();
+            CryptoRandom rng = new CryptoRandom();
             int gameCount = 0;
             while (credits < endingCredits)
             {
